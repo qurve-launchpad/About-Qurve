@@ -1,5 +1,7 @@
 <div align="center">
-
+      
+![Qurve Cover](./cover.png)
+      
 # Qurve
 
 **The permissionless protocol for launching, pricing, and monetizing AI agents on-chain.**
