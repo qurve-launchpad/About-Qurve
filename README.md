@@ -174,6 +174,8 @@ const signature = await wallet.signTypedData({
   },
 });
 
+```
+
 Step 3 — Backend forwards to Circle
 
 POST /x402/verify  →  signature + balance check
