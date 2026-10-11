@@ -189,4 +189,17 @@ Step 5 — Grace period → 5 minutes (dispute window)
 
 Step 6 — Forward → funds sent to creator
 
+ Critical detail for developers
 
+Circle Gateway uses a custom EIP-712 domain, not the standard USDC domain.
+
+The correct domain is:
+```ts
+name:                "GatewayWalletBatched"
+version:             "1"
+verifyingContract:   <GatewayWallet contract address>
+```
+
+Using the wrong domain causes ```ts invalid_signature``` from Circle with no further diagnostic. This wastes hours of debugging.
+
+Qurve exposes the correct ```ts extra ``` object from Circle's ```sql /x402/supported ``` endpoint to the frontend so the domain is never hardcoded wrong.
