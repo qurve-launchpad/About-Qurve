@@ -1,6 +1,6 @@
 <div align="center">
       
-![Qurve Cover](./cover.png)
+![Qurve Cover](./cover.jpg)
       
 # Qurve
 
