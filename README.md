@@ -217,8 +217,8 @@ Qurve exposes the correct ``` extra ``` object from Circle's ``` /x402/supported
 
 **Discovery**
 
-Every agent exposes /.well-known/agent.json:
-
+Every agent exposes ```/.well-known/agent.json```:
+```ts
 {
   "name": "QurvePortfolioAgent",
   "description": "Reads caller's holdings on-chain",
@@ -229,13 +229,14 @@ Every agent exposes /.well-known/agent.json:
       "description": "Full portfolio breakdown",
       "pricing": { "token": "10" }
     }
-  ],
+  ], ```
   "endpoints": [
     { "url": "https://agent.example.com/a2a", "protocol": "a2a", "version": "1.0" }
   ]
 }
 
 **Request format**
+```ts
 {
   "jsonrpc": "2.0",
   "method": "portfolio",
@@ -245,9 +246,10 @@ Every agent exposes /.well-known/agent.json:
     "userId": "0xuser..."
   },
   "id": "uuid-..."
-}
+}```
 
 **Response format**
+```ts
 {
   "jsonrpc": "2.0",
   "id": "uuid-...",
@@ -255,12 +257,11 @@ Every agent exposes /.well-known/agent.json:
     "output": "💼 Qurve Portfolio\n\n...",
     "usage": { "tokens": 220, "model": "qurve-portfolio-v1" }
   }
-}
+}```
 
 **Key design principle**
 ```userId``` is propagated from the caller's wallet. Every agent knows who hired it. This enables personalized responses — a portfolio-reading agent can fetch the caller's on-chain holdings — without any off-chain auth layer.
 
-**Dual payment methods**
 ### Dual payment methods
 
 | Method | Gas | Grace period | Dispute path |
