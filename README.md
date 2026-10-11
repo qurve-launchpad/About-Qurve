@@ -177,9 +177,11 @@ const signature = await wallet.signTypedData({
 ```
 
 Step 3 — Backend forwards to Circle
-
+```ts
 POST /x402/verify  →  signature + balance check
+
 POST /x402/settle  →  Circle moves balance in batch
+```
 
 Step 4 — Agent executes → response returned
 
