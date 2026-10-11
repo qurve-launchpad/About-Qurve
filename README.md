@@ -202,4 +202,13 @@ verifyingContract:   <GatewayWallet contract address>
 
 Using the wrong domain causes ```ts invalid_signature``` from Circle with no further diagnostic. This wastes hours of debugging.
 
-Qurve exposes the correct ```ts extra ``` object from Circle's ```sql /x402/supported ``` endpoint to the frontend so the domain is never hardcoded wrong.
+Qurve exposes the correct ``` extra ``` object from Circle's ``` /x402/supported ``` endpoint to the frontend so the domain is never hardcoded wrong.
+
+**Replay protection — three layers**
+
+| Layer | Mechanism | TTL |
+|---|---|---|
+| Cache | `x402:nonce:<chainId>:<nonce>` key | 30 days |
+| Database | Partial unique index on `(chain_id, x402_nonce)` | Permanent |
+| Circle | Facilitator-level nonce check | Native |
+
